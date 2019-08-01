@@ -1,0 +1,81 @@
+package traintimedetails;
+
+
+public class traintimedetails{
+import java.util.Scanner;
+   
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+       
+       String days[]={"Monday","Monday","Monday","Monday","Monday","Tuesday","Tuesday","Tuesday","Tuesday","Tuesday","Wednesday","Wednesday","Wednesday","Wednesday","Wednesday"};
+       double times[]={06.04,09.04,12.04,15.04,19.04,06.04,09.04,12.04,15.04,19.04,06.04,09.04,12.04,15.04,19.04};
+       int pass[]={22,119,64,177,21,22,111,87,193,22,11,107,93,162,42};
+       
+       /*displayiing the data*/
+       System.out.println("Days\t\tDeparture times\t\tNumber of passenger");
+       for(int i=0;i<5;i++)
+       System.out.println(days[i]+"\t\t"+times[i]+"\t\t\t"+pass[i]);
+       
+       System.out.println("\nDays\t\tDeparture times\t\tNumber of passenger");
+       for(int i=5;i<10;i++)
+       System.out.println(days[i]+"\t\t"+times[i]+"\t\t\t"+pass[i]);
+       
+       System.out.println("\nDays\t\tDeparture times\t\tNumber of passenger");
+       for(int i=10;i<15;i++)
+       System.out.println(days[i]+"\t\t"+times[i]+"\t\t\t"+pass[i]);
+       
+       /*finding the most popular train*/
+       int max = pass[0];
+       int n= 0;
+       for(int i=0;i<15;i++){
+        if(pass[i]>max){
+            max=pass[i];
+            n=i;
+            }
+       }
+       System.out.println("\nThe day and time of most popular train: "+days[n]+"\t\t"+times[n]);
+       
+       /*finding the least popular train*/
+       int min = pass[0];
+       int inp = 0;
+       for(int i=0;i<15;i++){
+        if(pass[i]<min){
+            min=pass[i];
+            inp=i;
+            }
+       }
+       System.out.println("\nThe day and time of least popular train: "+days[inp]+"\t"+times[inp]);
+       
+       /*finding whether the 6.04 train is more popular than 9.04 train*/
+       int avg01=(pass[0]+pass[5]+pass[10])/3;
+       int avg02=(pass[1]+pass[6]+pass[11])/3;
+    
+       if(avg01>avgt02)
+            System.out.println("\n6.04 train is more popular than 9.04 train");
+       else
+            System.out.println("\n9.04 train is more popular than 6.04 train");
+       
+       
+       /*finding whether the 6.04 train on monday is more popular than 6.04 train on tuesday*/
+       if(pass[0]>pass[5])
+            System.out.println("\n6.04 train on monday is more popular than 6.04 train on tuesday");
+       else
+            System.out.println("\n6.04 train on monday is not more popular than 6.04 train on tuesday");
+       
+       /*displaying a list of all train(day,time)where passenger number were bekow 50*/
+       System.out.println("\nList of all trains that have less than 50 passengers");
+       for(int i=0;i<15;i++){
+           if(pass[i]<50){
+              System.out.println("("+days[i]+","+times[i]+")");
+           }
+       }
+       
+       /*calculating average number of passenger travelling on the 12.04 train*/
+       int avgpassenger =(pass[2]+pass[7]+pass[12])/3;
+       System.out.println("\nAverage number of passenger travelling on the 12.04 train: "+avgpassenger);
+       
+       
+       
+    }
+    
+}
